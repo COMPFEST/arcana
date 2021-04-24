@@ -18,7 +18,7 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "size-build": "ls -alv && cross-env NODE_ENV=production size-limit",
+    "size-build": "cd dist && ls -alv && cd .. && cross-env NODE_ENV=production size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -43,12 +43,12 @@
   "module": "dist/arcana.esm.js",
   "size-limit": [
     {
-      "path": "dist/arcana.cjs.production.min.js",
+      "path": "./dist/arcana.cjs.production.min.js",
       "webpack": false,
       "limit": "10 KB"
     },
     {
-      "path": "dist/arcana.esm.js",
+      "path": "./dist/arcana.esm.js",
       "webpack": false,
       "limit": "10 KB"
     }
