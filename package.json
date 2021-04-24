@@ -43,14 +43,12 @@
   "module": "dist/arcana.esm.js",
   "size-limit": [
     {
-      "path": "./dist/arcana.cjs.production.min.js",
-      "webpack": false,
-      "limit": "10 KB"
+      "path": "dist/arcana.cjs.production.min.js",
+      "limit": "100 KB"
     },
     {
-      "path": "./dist/arcana.esm.js",
-      "webpack": false,
-      "limit": "10 KB"
+      "path": "dist/arcana.esm.js",
+      "limit": "100 KB"
     }
   ],
   "devDependencies": {
