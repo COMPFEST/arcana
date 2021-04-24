@@ -29,8 +29,5 @@ jobs:
       - name: Test
         run: npm test --ci --coverage --maxWorkers=2
 
-      - name: Size Limit
-        run: npm run size
-
       - name: Build
         run: npm run build
