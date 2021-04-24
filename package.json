@@ -11,7 +11,7 @@
     "node": ">=10"
   },
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
+    "preinstall": "npm install -D npm-force-resolutions && npx npm-force-resolutions",
     "start": "tsdx watch",
     "build": "cross-env NODE_ENV=production tsdx build",
     "test": "tsdx test --passWithNoTests",
