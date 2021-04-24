@@ -18,7 +18,7 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "size-build": "npm uninstall webpack && cross-env NODE_ENV=production size-limit",
+    "size-build": "cross-env NODE_ENV=production size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -44,10 +44,12 @@
   "size-limit": [
     {
       "path": "dist/arcana.cjs.production.min.js",
+      "webpack": false,
       "limit": "10 KB"
     },
     {
       "path": "dist/arcana.esm.js",
+      "webpack": false,
       "limit": "10 KB"
     }
   ],
