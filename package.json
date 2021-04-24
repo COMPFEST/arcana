@@ -18,6 +18,7 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
+    "size-build": "cross-env NODE_ENV=production size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
