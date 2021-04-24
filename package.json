@@ -43,11 +43,11 @@
   "size-limit": [
     {
       "path": "dist/arcana.cjs.production.min.js",
-      "limit": "100 KB"
+      "limit": "10 KB"
     },
     {
       "path": "dist/arcana.esm.js",
-      "limit": "100 KB"
+      "limit": "10 KB"
     }
   ],
   "devDependencies": {
