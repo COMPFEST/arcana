@@ -13,7 +13,7 @@
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "cross-env NODE_ENV=production tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -36,17 +36,18 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "arcana",
-  "author": "Mario",
+  "name": "arcana-ui",
+  "author": "COMPFEST",
+  "description": "Arcana is a Modern React Component Library",
   "module": "dist/arcana.esm.js",
   "size-limit": [
     {
       "path": "dist/arcana.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     },
     {
       "path": "dist/arcana.esm.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     }
   ],
   "devDependencies": {
@@ -69,6 +70,7 @@
     "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.4.0",
