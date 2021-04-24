@@ -9,7 +9,7 @@ jobs:
       matrix:
         # Supports only for 12.x node for now
         node: ['12.x']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repo
