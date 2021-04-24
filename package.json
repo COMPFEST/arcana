@@ -11,6 +11,7 @@
     "node": ">=10"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
@@ -59,16 +60,23 @@
     "@storybook/addons": "^6.2.8",
     "@storybook/react": "^6.2.8",
     "@tailwindcss/postcss7-compat": "^2.1.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
-    "eslint": "^7.24.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
     "npm-force-resolutions": "0.0.10",
     "postcss": "^7.0.35",
+    "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
@@ -88,6 +96,6 @@
   },
   "dependencies": {},
   "resolutions": {
-    "eslint": "^7.24.0"
+    "eslint": "^7.25.0"
   }
 }
