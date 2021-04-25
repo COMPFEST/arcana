@@ -1,4 +1,4 @@
-const postcss = require('rollup-plugin-postcss')
+const postcss = require('rollup-plugin-postcss');
 
 module.exports = {
   rollup(config, options) {
@@ -12,8 +12,8 @@ module.exports = {
         inject: {
           insertAt: 'top',
         },
-      }),
-    )
-    return config
+      })
+    );
+    return config;
   },
-}
+};
