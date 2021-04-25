@@ -112,11 +112,5 @@
   },
   "resolutions": {
     "eslint": "^7.25.0"
-  },
-  "babelMacros": {
-    "twin": {
-      "preset": "emotion",
-      "config": "./tailwind.config.js"
-    }
   }
 }

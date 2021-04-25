@@ -17,12 +17,6 @@ module.exports = {
         },
       })
     );
-    // config.plugin.push(
-    //   babel({
-    //     extensions: config.extensions,
-    //     include: []
-    //   })
-    // )
     return config;
   },
 };

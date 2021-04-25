@@ -185,6 +185,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
         tw`font-bold rounded-lg`,
         buttonTheme !== 'tertiary' && tw`py-3 px-6`,
         disabled && tw`bg-gray-200 text-gray-400 hover:bg-gray-200`,
+        tw`cursor-pointer`,
       ]}
       {...styles}
     >
