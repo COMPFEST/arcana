@@ -16,7 +16,7 @@
     "build": "cross-env NODE_ENV=production tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "prepare": "cross-env NODE_ENV=production tsdx build",
     "size": "size-limit",
     "size-build": "cross-env NODE_ENV=production size-limit",
     "analyze": "size-limit --why",
