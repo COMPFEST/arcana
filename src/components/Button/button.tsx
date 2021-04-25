@@ -6,6 +6,8 @@ import React, {
 } from 'react';
 import { Link } from 'react-router-dom';
 
+import tw from 'twin.macro';
+
 import StyledButton, {
   StyledIcon,
   ButtonThemeMap,
@@ -15,7 +17,6 @@ import StyledButton, {
   ParentLoaderBackground,
 } from './style';
 import Loader, { LoaderColor } from '../Loader';
-import '../../tailwind.css';
 
 export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'tertiary';
 
@@ -109,20 +110,14 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
 
   if (to && !disabled) {
     return (
-      <StyledButton
-        className={`${disabled ? '' : `${ButtonThemeMap[buttonTheme]}`} ${
-          TextColorMap[buttonTheme]
-        } ${ComponentSizeMap[size]} ${
-          disabled && 'bg-gray-200 text-gray-400 hover:bg-gray-200'
-        } ${ml ? 'ml-5' : ''} ${mt ? 'mt-5' : ''} ${
-          buttonTheme !== 'tertiary' ? 'py-3 px-6' : 'bg-opacity-0'
-        } font-bold rounded-lg ${className}`}
-        {...styles}
-      >
+      <StyledButton className={className} {...styles}>
         <Link to={to} ref={ref as MutableRefObject<HTMLAnchorElement>}>
           <StyledIcon {...iconOptions}>
             <div
-              className={`text-sm lg:text-base flex items-center ${ComponentSizeMap['full']}`}
+              css={[
+                tw`text-sm lg:text-base flex items-center`,
+                ComponentSizeMap['full'],
+              ]}
             >
               {loading ? (
                 <Loader
@@ -146,20 +141,14 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
 
   if (href && !disabled) {
     return (
-      <StyledButton
-        className={`${disabled ? '' : `${ButtonThemeMap[buttonTheme]}`} ${
-          TextColorMap[buttonTheme]
-        } ${ComponentSizeMap[size]} ${
-          disabled && 'bg-gray-200 text-gray-400 hover:bg-gray-200'
-        } ${ml ? 'ml-5' : ''} ${mt ? 'mt-5' : ''} ${
-          buttonTheme !== 'tertiary' ? 'py-3 px-6' : 'bg-opacity-0'
-        } font-bold rounded-lg ${className}`}
-        {...styles}
-      >
+      <StyledButton className={className} {...styles}>
         <a href={href} ref={ref as MutableRefObject<HTMLAnchorElement>}>
           <StyledIcon {...iconOptions}>
             <div
-              className={`text-sm lg:text-base flex items-center ${ComponentSizeMap['full']}`}
+              css={[
+                tw`text-sm lg:text-base flex items-center`,
+                ComponentSizeMap['full'],
+              ]}
             >
               {loading ? (
                 <Loader
@@ -186,22 +175,25 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
       type={type}
       onClick={onClick}
       ref={ref as MutableRefObject<HTMLButtonElement>}
-      className={`${
-        disabled
-          ? ''
-          : `${ButtonThemeMap[buttonTheme]} ${TextColorMap[buttonTheme]}`
-      } ${ComponentSizeMap[size]} ${
-        disabled && 'bg-gray-200 text-gray-400 hover:bg-gray-200'
-      } ${ml ? 'ml-5' : ''} ${mt ? 'mt-5' : ''} ${
-        buttonTheme !== 'tertiary'
-          ? 'py-3 px-6'
-          : 'bg-opacity-0 hover:bg-opacity-0'
-      } font-bold rounded-lg ${className}`}
+      className={className}
+      css={[
+        ButtonThemeMap[buttonTheme],
+        TextColorMap[buttonTheme],
+        ml && tw`ml-5`,
+        mt && tw`mt-5`,
+        ComponentSizeMap[size],
+        tw`font-bold rounded-lg`,
+        buttonTheme !== 'tertiary' && tw`py-3 px-6`,
+        disabled && tw`bg-gray-200 text-gray-400 hover:bg-gray-200`,
+      ]}
       {...styles}
     >
       <StyledIcon {...iconOptions}>
         <div
-          className={`text-sm lg:text-base flex items-center ${ComponentSizeMap['full']}`}
+          css={[
+            tw`text-sm lg:text-base flex items-center`,
+            ComponentSizeMap['full'],
+          ]}
         >
           {loading ? (
             <Loader

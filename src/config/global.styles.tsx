@@ -1,15 +1,19 @@
 import React from 'react';
-import { Global, css } from '@emotion/react';
+import { GlobalStyles, css } from 'twin.macro';
 
-export const GlobalStylesConfig: React.FC = () => {
+interface GlobalStylesProps {
+  additionalCss?: string;
+}
+
+export const GlobalStylesConfig: React.FC<GlobalStylesProps> = () => {
   return (
-    <Global
-      styles={css`
+    <GlobalStyles
+      css={css`
         html {
           scroll-behavior: smooth;
         }
 
-        * {
+        .body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
             Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
             sans-serif;
