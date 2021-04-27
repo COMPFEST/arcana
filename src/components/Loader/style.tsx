@@ -1,6 +1,4 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-
+import { styled, css } from 'twin.macro';
 import { LoaderColor, LoaderSpeed } from './loader';
 
 interface StyledSpinnerProps {

@@ -1,12 +1,25 @@
 import React, { ReactNode, ElementType } from 'react';
-import styled from '@emotion/styled';
+import tw, { styled } from 'twin.macro';
 import { ButtonTheme, ComponentSize, IconAlignment } from './button';
 
 export const ButtonThemeMap = {
-  default: `bg-blue hover:bg-blue-lighter`,
-  primary: `bg-blue hover:bg-blue-lighter`,
-  secondary: `bg-lightBlue rounded-lg`,
-  tertiary: `rounded-lg`,
+  default: tw`bg-blue hover:bg-blue-lighter`,
+  primary: tw`bg-blue hover:bg-blue-lighter`,
+  secondary: tw`bg-lightBlue rounded-lg`,
+  tertiary: tw`rounded-lg bg-transparent`,
+};
+
+export const TextColorMap = {
+  default: tw`text-white font-bold`,
+  primary: tw`text-white font-bold`,
+  secondary: tw`text-blue hover:bg-lightBlue-lighter`,
+  tertiary: tw`text-blue hover:py-0.5 hover:underline`,
+};
+
+export const ComponentSizeMap = {
+  base: tw``,
+  full: tw`w-full text-center justify-center`,
+  half: tw`w-1/2 text-center justify-center`,
 };
 
 export const LoaderThemeMap = {
@@ -22,19 +35,6 @@ export const ParentLoaderBackground = {
   secondary: '#DCEDFE',
   tertiary: '#FFFFFF',
   disabled: 'rgba(229, 231, 235, 0.2)',
-};
-
-export const TextColorMap = {
-  default: `text-white font-bold`,
-  primary: `text-white font-bold`,
-  secondary: `text-blue hover:bg-lightBlue-lighter`,
-  tertiary: `text-blue hover:py-0.5 hover:underline`,
-};
-
-export const ComponentSizeMap = {
-  base: ``,
-  full: `w-full text-center justify-center`,
-  half: `w-1/2 text-center justify-center`,
 };
 
 interface StyledIconProps {
@@ -54,6 +54,7 @@ interface StyledButtonProps {
 const StyledIconCSS = styled.div``;
 
 const StyledButton = styled.button<StyledButtonProps>`
+  cursor: pointer;
   border: none;
   &:focus {
     outline: none;
@@ -77,7 +78,7 @@ const StyledButton = styled.button<StyledButtonProps>`
 export const StyledIcon: React.FC<StyledIconProps> = (props) => {
   const { alignment, children, icon } = props;
   return (
-    <StyledIconCSS className="flex justify-start items-center">
+    <StyledIconCSS tw="flex justify-start items-center">
       {icon && alignment === 'left' && (
         <div className="icon-placeholder">{icon}</div>
       )}
