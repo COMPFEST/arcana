@@ -29,7 +29,7 @@ const Example = () => {
 
 ## Contributing
 
-No contribution markdown yet
+> #### [Please follow these steps to contribute](CONTRIBUTING.md).
 
 ## License
 
