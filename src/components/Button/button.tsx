@@ -4,7 +4,6 @@ import React, {
   MutableRefObject,
   ReactNode,
 } from 'react';
-import { Link } from 'react-router-dom';
 
 import tw from 'twin.macro';
 
@@ -54,18 +53,18 @@ type HTMLButtonProps = {
   type?: 'button' | 'submit' | 'reset';
 } & BaseButtonProps;
 
-type HTMLAnchorProps = {
-  href?: string;
-} & BaseButtonProps;
+// type HTMLAnchorProps = {
+//   href?: string;
+// } & BaseButtonProps;
 
-/**
- * Support for React Router
- */
-type CustomNodeProps = {
-  to?: string;
-} & BaseButtonProps;
+// /**
+//  * Support for React Router
+//  */
+// type CustomNodeProps = {
+//   to?: string;
+// } & BaseButtonProps;
 
-export type ButtonProps = HTMLButtonProps & HTMLAnchorProps & CustomNodeProps;
+export type ButtonProps = HTMLButtonProps;
 
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
   props,
@@ -91,8 +90,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
 
     onClick,
     type = 'button',
-    href,
-    to,
   } = props;
 
   const styles = {
@@ -107,68 +104,6 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
     icon,
     alignment: iconAlignment,
   };
-
-  if (to && !disabled) {
-    return (
-      <StyledButton className={className} {...styles}>
-        <Link to={to} ref={ref as MutableRefObject<HTMLAnchorElement>}>
-          <StyledIcon {...iconOptions}>
-            <div
-              css={[
-                tw`text-sm lg:text-base flex items-center`,
-                ComponentSizeMap['full'],
-              ]}
-            >
-              {loading ? (
-                <Loader
-                  visible
-                  width="1rem"
-                  height="1rem"
-                  parentBackground={
-                    ParentLoaderBackground[disabled ? 'disabled' : buttonTheme]
-                  }
-                  color={LoaderThemeMap[buttonTheme] as LoaderColor}
-                />
-              ) : (
-                children
-              )}
-            </div>
-          </StyledIcon>
-        </Link>
-      </StyledButton>
-    );
-  }
-
-  if (href && !disabled) {
-    return (
-      <StyledButton className={className} {...styles}>
-        <a href={href} ref={ref as MutableRefObject<HTMLAnchorElement>}>
-          <StyledIcon {...iconOptions}>
-            <div
-              css={[
-                tw`text-sm lg:text-base flex items-center`,
-                ComponentSizeMap['full'],
-              ]}
-            >
-              {loading ? (
-                <Loader
-                  visible
-                  width="1rem"
-                  height="1rem"
-                  parentBackground={
-                    ParentLoaderBackground[disabled ? 'disabled' : buttonTheme]
-                  }
-                  color={LoaderThemeMap[buttonTheme] as LoaderColor}
-                />
-              ) : (
-                children
-              )}
-            </div>
-          </StyledIcon>
-        </a>
-      </StyledButton>
-    );
-  }
 
   return (
     <StyledButton
