@@ -110,7 +110,21 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
 
   if (to && !disabled) {
     return (
-      <StyledButton className={className} {...styles}>
+      <StyledButton
+        type={type}
+        className={className}
+        css={[
+          ButtonThemeMap[buttonTheme],
+          TextColorMap[buttonTheme],
+          ml && tw`ml-5`,
+          mt && tw`mt-5`,
+          ComponentSizeMap[size],
+          tw`font-bold rounded-lg`,
+          buttonTheme !== 'tertiary' && tw`py-3 px-6`,
+          tw`cursor-pointer`,
+        ]}
+        {...styles}
+      >
         <Link to={to} ref={ref as MutableRefObject<HTMLAnchorElement>}>
           <StyledIcon {...iconOptions}>
             <div
@@ -141,7 +155,21 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
 
   if (href && !disabled) {
     return (
-      <StyledButton className={className} {...styles}>
+      <StyledButton
+        type={type}
+        className={className}
+        css={[
+          ButtonThemeMap[buttonTheme],
+          TextColorMap[buttonTheme],
+          ml && tw`ml-5`,
+          mt && tw`mt-5`,
+          ComponentSizeMap[size],
+          tw`font-bold rounded-lg`,
+          buttonTheme !== 'tertiary' && tw`py-3 px-6`,
+          tw`cursor-pointer`,
+        ]}
+        {...styles}
+      >
         <a href={href} ref={ref as MutableRefObject<HTMLAnchorElement>}>
           <StyledIcon {...iconOptions}>
             <div
