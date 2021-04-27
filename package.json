@@ -53,9 +53,11 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-react-jsx": "^7.13.12",
     "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
+    "@nrwl/react": "^12.0.8",
     "@size-limit/preset-small-lib": "^4.10.2",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-controls": "^6.2.9",
@@ -82,6 +84,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
     "npm-force-resolutions": "0.0.10",
     "postcss": "^7.0.35",
     "prettier": "^2.2.1",
@@ -101,16 +104,16 @@
     "twin.macro": "^2.3.3",
     "typescript": "^4.2.4"
   },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
-    }
-  },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^11.2.0"
   },
   "resolutions": {
     "eslint": "^7.25.0"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion",
+      "config": "./tailwind.config.js"
+    }
   }
 }
