@@ -24,7 +24,9 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0"
   },
   "husky": {
     "hooks": {
