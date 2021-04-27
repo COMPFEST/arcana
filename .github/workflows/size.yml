@@ -1,4 +1,4 @@
-name: Comparing PR's bundle size with main
+name: Size < 100 KB
 on: [pull_request]
 
 jobs:
