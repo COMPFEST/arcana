@@ -2,7 +2,7 @@ const color = require('color');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: ['./src/components/**/*.tsx'],
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -71,6 +71,14 @@ module.exports = {
           40: '#999999',
           20: '#CCCCCC',
         },
+        cfgray: '#999999',
+        blueprimary: '#0266D3',
+        bluesecondary: '#F0F7FE',
+        bluetertiary: '#0266D3',
+        rederror: '#E9202A',
+        academypurple: '#5856D6',
+        competitionorange: '#E68C00',
+        bluepurple: '#7033F3',
       },
       fontFamily: {
         sans: [
@@ -89,6 +97,9 @@ module.exports = {
         '1/2': '50%',
         '3/4': '75%',
         full: '100%',
+      },
+      letterSpacing: {
+        superwide: '.5em',
       },
     },
   },

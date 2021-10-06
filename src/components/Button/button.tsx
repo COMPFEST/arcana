@@ -4,6 +4,7 @@ import React, {
   MutableRefObject,
   ReactNode,
 } from 'react';
+import { Link } from 'react-router-dom';
 
 import tw from 'twin.macro';
 
@@ -12,10 +13,7 @@ import StyledButton, {
   ButtonThemeMap,
   TextColorMap,
   ComponentSizeMap,
-  LoaderThemeMap,
-  ParentLoaderBackground,
 } from './style';
-import Loader, { LoaderColor } from '../Loader';
 
 export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'tertiary';
 
@@ -53,18 +51,20 @@ type HTMLButtonProps = {
   type?: 'button' | 'submit' | 'reset';
 } & BaseButtonProps;
 
-// type HTMLAnchorProps = {
-//   href?: string;
-// } & BaseButtonProps;
+type HTMLAnchorProps = {
+  href?: string;
+  rel?: string;
+  target?: string;
+} & BaseButtonProps;
 
-// /**
-//  * Support for React Router
-//  */
-// type CustomNodeProps = {
-//   to?: string;
-// } & BaseButtonProps;
+/**
+ * Support for React Router
+ */
+type CustomNodeProps = {
+  to?: string;
+} & BaseButtonProps;
 
-export type ButtonProps = HTMLButtonProps;
+export type ButtonProps = HTMLButtonProps & HTMLAnchorProps & CustomNodeProps;
 
 const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
   props,
@@ -90,6 +90,9 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
 
     onClick,
     type = 'button',
+    href,
+    rel = '',
+    target = '',
   } = props;
 
   const styles = {
@@ -105,6 +108,38 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
     alignment: iconAlignment,
   };
 
+  if (href && !disabled) {
+    return (
+      <a
+        href={href}
+        rel={rel}
+        target={target}
+        ref={ref as MutableRefObject<HTMLAnchorElement>}
+      >
+        <StyledButton
+          type={type}
+          onClick={onClick}
+          ref={ref as MutableRefObject<HTMLButtonElement>}
+          className={className}
+          css={[
+            ButtonThemeMap[buttonTheme],
+            TextColorMap[buttonTheme],
+            ml && tw`ml-5`,
+            mt && tw`mt-5`,
+            ComponentSizeMap[size],
+            tw`font-bold rounded-lg flex items-center`,
+            buttonTheme !== 'tertiary' && tw`py-3 px-6`,
+            disabled && tw`text-gray-400 hover:bg-gray-200`,
+            disabled && buttonTheme !== 'tertiary' && tw`bg-gray-200`,
+          ]}
+          {...styles}
+        >
+          <StyledIcon {...iconOptions}>{children}</StyledIcon>
+        </StyledButton>
+      </a>
+    );
+  }
+
   return (
     <StyledButton
       type={type}
@@ -117,10 +152,10 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
         ml && tw`ml-5`,
         mt && tw`mt-5`,
         ComponentSizeMap[size],
-        tw`font-bold rounded-lg`,
+        tw`font-bold rounded-lg flex items-center`,
         buttonTheme !== 'tertiary' && tw`py-3 px-6`,
-        disabled && tw`bg-gray-200 text-gray-400 hover:bg-gray-200`,
-        tw`cursor-pointer`,
+        disabled && tw`text-gray-400 hover:bg-gray-200`,
+        disabled && buttonTheme !== 'tertiary' && tw`bg-gray-200`,
       ]}
       {...styles}
     >
@@ -131,19 +166,7 @@ const Button: React.ForwardRefRenderFunction<unknown, ButtonProps> = (
             ComponentSizeMap['full'],
           ]}
         >
-          {loading ? (
-            <Loader
-              visible
-              width="1rem"
-              height="1rem"
-              parentBackground={
-                ParentLoaderBackground[disabled ? 'disabled' : buttonTheme]
-              }
-              color={LoaderThemeMap[buttonTheme] as LoaderColor}
-            />
-          ) : (
-            children
-          )}
+          {children}
         </div>
       </StyledIcon>
     </StyledButton>
