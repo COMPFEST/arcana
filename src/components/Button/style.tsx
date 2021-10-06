@@ -55,6 +55,7 @@ const StyledIconCSS = styled.div`
 `;
 
 const StyledButton = styled.button<StyledButtonProps>`
+  cursor: pointer;
   border: none;
   &:focus {
     outline: none;
