@@ -5,14 +5,14 @@ import TestimonyController, {
   TestimonyControllerImgBorderType,
   TestimonyControllerImgContainerType,
   TestimonyControllerProps,
-} from './TestimonyController/index';
+} from './TestimonyController';
 import TestimonyView, {
   TestimonyViewContainerMarginType,
   TestimonyViewContainerSpaceType,
   TestimonyViewImgSizeType,
   TestimonyViewMessageModeType,
   TestimonyViewProps,
-} from './TestimonyView/index';
+} from './TestimonyView';
 
 export interface Testimony {
   nama: string;

@@ -1,4 +1,4 @@
-const postcss = require('rollup-plugin-postcss');
+const postcss = require("rollup-plugin-postcss")
 const commonjs = require('rollup-plugin-commonjs');
 const babel = require('rollup-plugin-babel');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
@@ -15,15 +15,15 @@ module.exports = {
   rollup(config, options) {
     config.plugins.push(
       peerDepsExternal(),
-      static_files({
-        include: ['./static'],
-      }),
       resolve({ extensions: twindConfig.extensions }),
       commonjs(),
       babel({
         extensions: twindConfig.extensions,
         include: ['src/**/*'],
         exclude: 'node_modules/**',
+      }),
+      static_files({
+        include: ['./static'],
       })
     );
     return config;

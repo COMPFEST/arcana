@@ -1,8 +1,8 @@
 import React from 'react';
+import tw, { css } from "twin.macro";
 import { SerializedStyles } from '@emotion/react';
-import tw from 'twin.macro';
-import { Testimony, TestimonyProps } from '../TestimonyLayout';
-import { GradientText } from '../util';
+import { Testimony, TestimonyProps } from './TestimonyLayout';
+import { GradientText } from './util';
 
 export type TestimonyControllerImgBorderType = 'full' | 'none' | 'xl';
 export type TestimonyControllerImgContainerType = 'sm' | 'base' | 'lg';
