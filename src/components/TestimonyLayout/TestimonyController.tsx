@@ -1,5 +1,5 @@
 import React from 'react';
-import tw, { css } from 'twin.macro';
+import tw, { css } from "twin.macro";
 import { SerializedStyles } from '@emotion/react';
 import { Testimony, TestimonyProps } from './TestimonyLayout';
 import { GradientText } from './util';
