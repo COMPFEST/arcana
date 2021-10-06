@@ -10,7 +10,7 @@ const App = () => {
       <Button>Tes</Button>
       <Rundown 
         dataRundown={[
-    { event: 'Registrasi Peserta', timeStart: '12.45', timeEnd: '13.00' },
+          { event: 'Registrasi Peserta', timeStart: '12.45', timeEnd: '13.00' },
         ]}
       />
     </div>
