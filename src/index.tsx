@@ -52,13 +52,11 @@ export { default as Tag } from './components/Tag';
 export * from './components/TestimonyLayout';
 export { default as TestimonyLayout } from './components/TestimonyLayout';
 
-// why the fuck is this need /index typescript??????
-export * from './components/TestimonyLayout/TestimonyController/index';
-export { default as TestimonyController } from './components/TestimonyLayout/TestimonyController/index';
+export * from './components/TestimonyLayout/TestimonyController';
+export { default as TestimonyController } from './components/TestimonyLayout/TestimonyController';
 
-// why the fuck is this need /index typescript??????
-export * from './components/TestimonyLayout/TestimonyView/index';
-export { default as TestimonyView } from './components/TestimonyLayout/TestimonyView/index';
+export * from './components/TestimonyLayout/TestimonyView';
+export { default as TestimonyView } from './components/TestimonyLayout/TestimonyView';
 
 export * from './components/Timeline';
 export { default as Timeline } from './components/Timeline';
