@@ -1,8 +1,13 @@
 import tw, { styled, css } from 'twin.macro';
-import { RundownColor, RundownProps } from './rundown';
+import { RundownColor, TimeColor } from './rundown';
 
 interface StyledRundownProps {
   backgroundColor: RundownColor;
+}
+
+interface StyledTimeProps {
+  timeBgColor: string;
+  timeColor: TimeColor;
 }
 
 export const RundownThemeMap = {
@@ -49,7 +54,7 @@ export const StyledRundown = styled.div<StyledRundownProps>`
   }
 `;
 
-export const StyledTime = styled.div`
+export const StyledTime = styled.div<StyledTimeProps>`
   width: auto;
   display: flex;
   align-items: center;

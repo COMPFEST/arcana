@@ -23,7 +23,7 @@ export const ComponentSizeMap = {
 };
 
 interface StyledIconProps {
-  icon?: ElementType;
+  icon?: ReactNode;
   children: ReactNode;
   alignment: IconAlignment;
 }

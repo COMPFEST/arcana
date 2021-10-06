@@ -1,20 +1,14 @@
 import React from 'react';
 import tw, { css } from 'twin.macro';
-import { TagButtonType, TagIconSizeType, TextColorMap } from './Tag';
-
-const iconSizeMap = {
-  sm: tw`w-3 h-3`,
-  base: tw`w-4 h-5`,
-  lg: tw`w-6 h-6`,
-  xl: tw`w-8 h-8`,
-};
+import { TagButtonType, TagIconSizeType } from './types';
+import { IconSizeMap, TextColorMap } from './utils';
 
 interface IconProps {
-  Asset: any;
+  src: string | React.ReactNode;
   buttonMode: TagButtonType;
   iconSize: TagIconSizeType;
 }
-export const Icon: React.FC<IconProps> = ({ buttonMode, iconSize, Asset }) => {
+export const Icon: React.FC<IconProps> = ({ buttonMode, iconSize, src }) => {
   return (
     <div
       css={[
@@ -27,7 +21,9 @@ export const Icon: React.FC<IconProps> = ({ buttonMode, iconSize, Asset }) => {
         TextColorMap[buttonMode],
       ]}
     >
-      <Asset css={iconSizeMap[iconSize]} />
+      <div css={IconSizeMap[iconSize]}>
+        {typeof src === 'string' ? <img src={src} /> : src}
+      </div>
     </div>
   );
 };

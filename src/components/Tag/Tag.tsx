@@ -1,22 +1,9 @@
 import React from 'react';
 import tw, { css, styled } from 'twin.macro';
 import { Icon } from './Icon';
-export type TagIconSizeType = 'sm' | 'base' | 'lg' | 'xl';
-export type TagTextSizeType = 'xs' | 'sm' | 'base';
-export type TagButtonType = 'primary' | 'secondary' | 'warning' | 'neutral';
 
-const iconSizeMap = {
-  sm: tw`w-3 h-3`,
-  base: tw`w-4 h-5`,
-  lg: tw`w-6 h-6`,
-  xl: tw`w-8 h-8`,
-};
-
-const textSizeMap = {
-  xs: tw`text-xs`,
-  sm: tw`text-sm`,
-  base: tw`text-base`,
-};
+import { TagButtonType, TagIconSizeType, TagTextSizeType } from './types';
+import { TextColorMap, TextSizeMap, IconSizeMap } from './utils';
 
 export const ButtonThemeMap = {
   primary: tw`bg-blue hover:bg-blue-lighter`,
@@ -34,16 +21,8 @@ export const ButtonThemeMap = {
     }
   `,
 };
-
-export const TextColorMap = {
-  neutral: tw`text-black-100 font-bold`,
-  warning: tw`text-error font-bold`,
-  primary: tw`text-white font-bold`,
-  secondary: tw`text-blue font-bold`,
-};
-
 export interface TagButtonProps {
-  icon: any;
+  icon: string | React.ReactNode;
   text: string;
   iconSize: TagIconSizeType;
   textSize: TagTextSizeType;
@@ -71,8 +50,8 @@ const TagButton: React.FC<TagButtonProps> = ({
         `,
       ]}
     >
-      <Icon buttonMode={buttonMode} iconSize={iconSize} Asset={icon} />
-      <h6 css={[textSizeMap[textSize]]}>{text}</h6>
+      <Icon buttonMode={buttonMode} iconSize={iconSize} src={icon} />
+      <h6 css={[TextSizeMap[textSize]]}>{text}</h6>
     </button>
   );
 };

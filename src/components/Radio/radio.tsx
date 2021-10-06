@@ -14,32 +14,32 @@ type RadioValueProps = {
 };
 
 interface RadioProps {
-  options: Array<RadioValueProps>;
-  setSelected: Dispatch<SetStateAction<string>>;
-  name: string;
+  options?: Array<RadioValueProps>;
+  name?: string;
 }
 
 const Radio: React.FC<RadioProps> = (props) => {
-  const { options, name } = props;
+  const { options, name = '' } = props;
 
   const { register } = useForm();
   return (
     <RadioContainer>
-      {options.map((e, i) => {
-        return (
-          <StyledRadioButton key={i}>
-            <StyledLabel>
-              <input
-                type="radio"
-                {...register(name, { required: true })}
-                name={name}
-                value={e.value}
-              />
-              <StyledRadioText>{e.text}</StyledRadioText>
-            </StyledLabel>
-          </StyledRadioButton>
-        );
-      })}
+      {options &&
+        options.map((e, i) => {
+          return (
+            <StyledRadioButton key={i}>
+              <StyledLabel>
+                <input
+                  type="radio"
+                  {...register(name, { required: true })}
+                  name={name}
+                  value={e.value}
+                />
+                <StyledRadioText>{e.text}</StyledRadioText>
+              </StyledLabel>
+            </StyledRadioButton>
+          );
+        })}
     </RadioContainer>
   );
 };

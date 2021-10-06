@@ -20,7 +20,7 @@
     "size": "size-limit",
     "size-build": "cross-env NODE_ENV=production size-limit",
     "analyze": "size-limit --why",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./static -p 6006",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
@@ -89,7 +89,7 @@
     "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
-    "npm-force-resolutions": "0.0.10",
+    "npm-force-resolutions": "^0.0.10",
     "postcss": "^8.1.0",
     "prettier": "^2.2.1",
     "react": "^17.0.2",

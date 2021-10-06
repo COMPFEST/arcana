@@ -11,7 +11,7 @@ const hapusFile = () => {
   console.log('Called hapus!');
 };
 
-const onDrop = async (acceptedFiles, rejectedFiles) => {
+const onDrop = async (acceptedFiles: any, rejectedFiles: any) => {
   if (acceptedFiles.length === 1) {
     console.log(acceptedFiles[0], 'sukses');
   } else if (rejectedFiles[0].errors[0].code === 'file-too-large') {

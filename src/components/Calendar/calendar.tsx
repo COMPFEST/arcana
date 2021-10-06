@@ -1,6 +1,6 @@
 import React, { useState, MouseEvent } from 'react';
 import Calendar from 'react-calendar';
-import './style.css';
+import { CalendarWrapper } from './style';
 import 'react-calendar/dist/Calendar.css';
 import tw from 'twin.macro';
 import {
@@ -61,7 +61,7 @@ const CalendarComponent: React.FC<MyCalendarProps> = ({ data = [] }) => {
   });
 
   return (
-    <div
+    <CalendarWrapper
       tw="font-sans pointer-events-none font-bold px-3 lg:px-2 xl:px-7 relative"
       onMouseEnter={onMouseEnter}
       onMouseLeave={() => setShowPopUp(false)}
@@ -93,7 +93,7 @@ const CalendarComponent: React.FC<MyCalendarProps> = ({ data = [] }) => {
           ))}
         </div>
       )}
-    </div>
+    </CalendarWrapper>
   );
 };
 

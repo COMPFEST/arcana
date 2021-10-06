@@ -25,6 +25,8 @@ export interface BaseAlertProps {
 
   // Scuffed fix to the parent background, has to be specified!
   parentBackground?: string;
+
+  children?: React.ReactNode;
 }
 
 const Alert: React.FC<BaseAlertProps> = (props) => {
@@ -51,7 +53,10 @@ const Alert: React.FC<BaseAlertProps> = (props) => {
   };
   return (
     <StyledAlert {...styledAlertProps}>
-      <StyledIconInfo src={`/bx-info-circle-${type}.svg`} iconSize={iconSize} />
+      <StyledIconInfo
+        src={`/svgs/bx-info-circle-${type}.svg`}
+        iconSize={iconSize}
+      />
       <div>{children}</div>
     </StyledAlert>
   );

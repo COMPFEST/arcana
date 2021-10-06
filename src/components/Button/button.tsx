@@ -26,7 +26,7 @@ interface BaseButtonProps {
   buttonTheme?: ButtonTheme;
 
   // Icons for Button
-  icon?: ElementType;
+  icon?: ReactNode;
   iconAlignment?: IconAlignment;
 
   // Size based on ComponentSize

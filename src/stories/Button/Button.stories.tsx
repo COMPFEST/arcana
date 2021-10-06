@@ -20,7 +20,7 @@ Default.args = {
   icon: '',
   iconAlignment: 'left',
   href: 'https://www.compfest.id',
-  type: '',
+  type: 'button',
   size: 'base',
 };
 
@@ -34,7 +34,7 @@ Primary.args = {
   icon: '',
   iconAlignment: 'left',
   href: 'https://www.compfest.id',
-  type: '',
+  type: 'button',
   size: 'base',
 };
 
@@ -48,7 +48,7 @@ Secondary.args = {
   icon: '',
   iconAlignment: 'left',
   href: 'https://www.compfest.id',
-  type: '',
+  type: 'button',
   size: 'base',
 };
 
@@ -62,6 +62,6 @@ Tertiary.args = {
   icon: '',
   iconAlignment: 'left',
   href: 'https://www.compfest.id',
-  type: '',
+  type: 'button',
   size: 'base',
 };

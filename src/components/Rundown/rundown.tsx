@@ -8,7 +8,7 @@ import {
 } from './style';
 import tw from 'twin.macro';
 
-export type RundownColor = 'default' | 'blue' | 'red' | 'dark-red' | 'black';
+export type RundownColor = 'default' | 'blue';
 export type TimeColor = 'black' | 'white';
 
 interface dataRundownProps {

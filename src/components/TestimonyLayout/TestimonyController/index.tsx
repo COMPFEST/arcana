@@ -70,64 +70,60 @@ const TestimonyController: React.FC<TestimonyControllerProps> = ({
 
       {/* Mobile Version */}
       <div tw="flex md:hidden flex-row space-x-8 pb-6">
-        {testiList.map((val, index) => {
-          if (index < 3) {
-            return (
-              <div
-                key={index}
-                css={[
-                  index === selected && onSelected,
-                  tw`relative`,
-                  imgContainerMap[imgContainer],
-                ]}
-              >
-                <img
-                  css={[imgBorderMap[imgBorder], tw`bg-white cursor-pointer`]}
-                  src={val.src}
-                  alt="image testimoni"
-                  style={{
-                    width: imgWidth,
-                    height: imgHeight,
-                  }}
-                  onClick={() => {
-                    selector && selector(index);
-                  }}
-                />
-                <h1 tw="text-center pt-2">{val.namaPanggilan}</h1>
-              </div>
-            );
-          }
-        })}
+        {testiList.map((val, index) =>
+          index < 3 ? (
+            <div
+              key={index}
+              css={[
+                index === selected && onSelected,
+                tw`relative`,
+                imgContainerMap[imgContainer],
+              ]}
+            >
+              <img
+                css={[imgBorderMap[imgBorder], tw`bg-white cursor-pointer`]}
+                src={val.src}
+                alt="image testimoni"
+                style={{
+                  width: imgWidth,
+                  height: imgHeight,
+                }}
+                onClick={() => {
+                  selector && selector(index);
+                }}
+              />
+              <h1 tw="text-center pt-2">{val.namaPanggilan}</h1>
+            </div>
+          ) : null
+        )}
       </div>
       <div tw="flex md:hidden flex-row space-x-8">
-        {testiList.map((val, index) => {
-          if (index > 2) {
-            return (
-              <div
-                key={index}
-                css={[
-                  index === selected && onSelected,
-                  tw`relative`,
-                  imgContainerMap[imgContainer],
-                ]}
-              >
-                <img
-                  css={[imgBorderMap[imgBorder], tw`bg-white cursor-pointer`]}
-                  src={val.src}
-                  alt="image testimoni"
-                  style={{
-                    width: imgWidth,
-                    height: imgHeight,
-                  }}
-                  onClick={() => {
-                    selector && selector(index);
-                  }}
-                />
-                <h1 tw="text-center pt-2">{val.namaPanggilan}</h1>
-              </div>
-            );
-          }
-        })}
+        {testiList.map((val, index) =>
+          index > 2 ? (
+            <div
+              key={index}
+              css={[
+                index === selected && onSelected,
+                tw`relative`,
+                imgContainerMap[imgContainer],
+              ]}
+            >
+              <img
+                css={[imgBorderMap[imgBorder], tw`bg-white cursor-pointer`]}
+                src={val.src}
+                alt="image testimoni"
+                style={{
+                  width: imgWidth,
+                  height: imgHeight,
+                }}
+                onClick={() => {
+                  selector && selector(index);
+                }}
+              />
+              <h1 tw="text-center pt-2">{val.namaPanggilan}</h1>
+            </div>
+          ) : null
+        )}
       </div>
     </div>
   );
