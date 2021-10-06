@@ -24,10 +24,6 @@ module.exports = {
       }),
       static_files({
         include: ['./static'],
-      }),
-      postcss({
-        inject: true,
-        extract: !!options.writeMeta,
       })
     );
     return config;
