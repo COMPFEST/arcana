@@ -1,7 +1,6 @@
 import React, { useState, MouseEvent } from 'react';
 import Calendar from 'react-calendar';
 import { CalendarWrapper } from './style';
-import 'react-calendar/dist/Calendar.css';
 import tw from 'twin.macro';
 import {
   compareDateEquals,

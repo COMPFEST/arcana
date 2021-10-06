@@ -1,3 +1,4 @@
+const postcss = require("rollup-plugin-postcss")
 const commonjs = require('rollup-plugin-commonjs');
 const babel = require('rollup-plugin-babel');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
@@ -24,6 +25,10 @@ module.exports = {
       static_files({
         include: ['./static'],
       }),
+      postcss({
+        inject: true,
+        extract: !!options.writeMeta,
+      })
     );
     return config;
   },
